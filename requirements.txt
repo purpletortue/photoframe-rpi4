@@ -1,0 +1,4 @@
+pi3d
+geopy
+paho-mqtt
+exifread
