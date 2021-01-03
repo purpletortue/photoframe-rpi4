@@ -16,7 +16,7 @@ import os
 import time
 import random
 import math
-import demo
+#import demo
 import pi3d
 
 from pi3d.Texture import MAX_SIZE
@@ -170,7 +170,7 @@ def get_files(dt_from=None, dt_to=None):
                 if (dt_from is not None and dt < dt_from) or (dt_to is not None and dt > dt_to):
                   include_flag = False
               if include_flag:
-                # iFiles now list of lists [file_name, orientation, file_changed_date, exif_date] 
+                # iFiles now list of lists [file_name, orientation, file_changed_date, exif_date]
                 file_list.append([file_path_name, orientation, os.path.getmtime(file_path_name), dt])
   if shuffle:
     file_list.sort(key=lambda x: x[2]) # will be later files last
@@ -340,7 +340,7 @@ font = pi3d.Font(config.FONT_FILE, codepoints=config.CODEPOINTS, grid_size=grid_
 text = pi3d.PointText(font, CAMERA, max_chars=200, point_size=50)
 textblock = pi3d.TextBlock(x=-DISPLAY.width * 0.5 + 50, y=-DISPLAY.height * 0.4,
                           z=0.1, rot=0.0, char_count=199,
-                          text_format="{}".format(" "), size=0.99, 
+                          text_format="{}".format(" "), size=0.99,
                           spacing="F", space=0.02, colour=(1.0, 1.0, 1.0, 1.0))
 text.add_text_block(textblock)
 
