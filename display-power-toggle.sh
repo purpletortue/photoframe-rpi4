@@ -18,15 +18,16 @@ then
   #turn on
   $vcgen_cmd display_power 1
 
-  #sleep to give monitor time to power on
-  #before touch listener engages again
-  $sleep_cmd 5
+  # delay & restart monior process to prevent accidental multi touches from queueing
+  $sleep_cmd 1
+  systemctl --user restart touch-monitor
 
 else
   #turn off
   $vcgen_cmd display_power 0
 
-  #sleep to give monitor time to power off
-  #before touch listener engages again
-  $sleep_cmd 5
+  # delay & restart monior process to prevent accidental multi touches from queueing
+  $sleep_cmd 1
+  systemctl --user restart touch-monitor
+
 fi
