@@ -12,6 +12,7 @@ USING exif info to rotate images
 
     ESC to quit, 's' to reverse, any other key to move on one.
 '''
+
 import os
 import time
 import random
