@@ -2,7 +2,7 @@ import os
 import locale
 from PIL import ExifTags
 from geopy.geocoders import Nominatim ## NB other geo services will need different code
-import PictureFrame2020config as config
+import PictureFrame2020config_new as config
 
 EXIF_GPSINFO = None
 EXIF_GPSINFO_LAT = None
