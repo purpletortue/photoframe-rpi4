@@ -1,7 +1,7 @@
 ExifRead==2.3.2
 geographiclib==1.50
 geopy==2.1.0
-numpy==1.19.4
+numpy==1.20.3
 paho-mqtt==1.5.1
-pi3d==2.41
-Pillow==8.1.0
+pi3d==2.45
+Pillow==8.2.0
