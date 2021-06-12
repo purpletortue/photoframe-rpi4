@@ -30,13 +30,13 @@ function turn_on() {
 function toggle() {
   if is_off
   then
-    turn_on()
+    turn_on
     # delay & restart monitor process to prevent accidental multi touches from queueing
     $sleep_cmd 1
     systemctl --user restart touch-monitor
 
   else
-    turn_off()
+    turn_off
     # delay & restart monitor process to prevent accidental multi touches from queueing
     $sleep_cmd 1
     systemctl --user restart touch-monitor
