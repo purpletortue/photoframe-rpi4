@@ -46,11 +46,11 @@ function toggle() {
 
 if [ "$arg" == "TOGGLE" ]
 then
-  toggle()
+  toggle
 elif [ "$arg" == "OFF" ]
 then
-  turn_off()
+  turn_off
 elif [ "$arg" == "ON" ]
 then
-  turn_on()
+  turn_on
 fi
