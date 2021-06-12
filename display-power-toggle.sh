@@ -18,7 +18,7 @@ if is_off
 then
   #turn on
   $vcgen_cmd display_power 1
-  $mqttpub_cmd -t frame/state -m on -q 0 -r
+  $mqttpub_cmd -t frame/state -m ON -q 0 -r
 
   # delay & restart monior process to prevent accidental multi touches from queueing
   $sleep_cmd 1
@@ -27,7 +27,7 @@ then
 else
   #turn off
   $vcgen_cmd display_power 0
-  $mqttpub_cmd -t frame/state -m off -q 0 -r
+  $mqttpub_cmd -t frame/state -m OFF -q 0 -r
 
   # delay & restart monior process to prevent accidental multi touches from queueing
   $sleep_cmd 1
