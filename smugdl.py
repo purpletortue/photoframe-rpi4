@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# smugdl v0.8
+# smugdl v0.9
 
 from pathlib import Path
 from smugmug import SmugMug
@@ -37,14 +37,33 @@ def get_album_key(self, node_id):
     #print(albumkey)
     return albumkey
 
+def dir_images(dir_path):
+    dir_contents = get_contents(dir_path)
+    """Get paths for all files in a directory, only 1 level deep"""
+    files = []
+    for entry in dir_contents:
+        if os.path.isfile(entry) and fnmatch.fnmatch(entry, '*.jpg'):
+            files.append(entry)
+    files.sort()
+    return files
+
+def get_contents(dir_path):
+    """Get paths for all contents in a directory, only 1 level deep"""
+    dir_contents = []
+    for entry in os.listdir(dir_path):
+        dir_contents.append(os.path.join(dir_path, entry))
+    dir_contents.sort()
+    return dir_contents
+
 def download_album(self, album):
     download_path = Path(args.directory + '/' + album['Name'])
     download_path.mkdir(parents=True, exist_ok=True)
     album_images = self.get_album_images(album['Key'])
     #print(album)
     #print(len(album_images))
+    image_list = []
     for image in album_images:
-
+        image_list.append(image['FileName'])
         filepath = download_path/image['FileName']
         sys.stdout.write('Checking ' + str(filepath) + '... ')
         sys.stdout.flush()
@@ -67,7 +86,15 @@ def download_album(self, album):
             sys.stdout.flush()
             #break
         else:
+            print('Downloading file.')
             smugmug.download_image(image_info = image, image_path = str(filepath))
+
+    local_files = dir_images(str(download_path))
+    for file in local_files:
+        if os.path.basename(file) not in image_list:
+            print('Deleting file', file)
+            os.remove(file)
+
     #print(album['NodeID'])
 
 
